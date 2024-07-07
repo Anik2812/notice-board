@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive School Notice Board</title>
-  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+  <title>Magical School Notice Board</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Short+Stack&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>Interactive School Notice Board</h1>
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <header class="animate__animated animate__bounceInDown">
+    <h1>Magical School Notice Board</h1>
     <div class="header-actions">
       <select id="classSelect">
         <option value="all">All Classes</option>
@@ -26,21 +29,21 @@
         <option value="11">Class 11</option>
         <option value="12">Class 12</option>
       </select>
-      <button id="addNoticeBtn">Add Notice</button>
+      <button id="addNoticeBtn">Add Magic Notice ✨</button>
     </div>
   </header>
   <main id="noticeBoard">
-    <div class="notice-placeholder">No notices yet! Add some below.</div>
+    <div class="notice-placeholder animate__animated animate__pulse">No magical notices yet! Cast a new one below. ✨</div>
   </main>
   <div id="noticeModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <h2 id="modalTitle">Add New Notice</h2>
+      <h2 id="modalTitle">Cast a New Magic Notice</h2>
       <form id="noticeForm">
-        <input type="text" id="noticeTitle" placeholder="Notice Title" required>
-        <textarea id="noticeContent" placeholder="Notice Content" required></textarea>
+        <input type="text" id="noticeTitle" placeholder="Magical Title" required>
+        <textarea id="noticeContent" placeholder="Magical Content" required></textarea>
         <select id="noticeClass" required>
-          <option value="" disabled selected>Select Class</option>
+          <option value="" disabled selected>Select Wizard Class</option>
           <option value="1">Class 1</option>
           <option value="2">Class 2</option>
           <option value="3">Class 3</option>
@@ -54,10 +57,13 @@
           <option value="11">Class 11</option>
           <option value="12">Class 12</option>
         </select>
-        <button type="submit" id="submitBtn">Add Notice</button>
+        <button type="submit" id="submitBtn">Cast Notice ✨</button>
       </form>
     </div>
   </div>
+  <button id="confettiBtn" class="confetti-btn">🎉</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

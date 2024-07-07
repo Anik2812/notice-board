@@ -1,92 +1,98 @@
+/* Existing CSS */
 body {
-    font-family: 'Comic Neue', cursive;
+    font-family: 'Short Stack', cursive;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa;
+    background-color: #1a1a2e;
+    color: #ffffff;
     overflow-x: hidden;
-  }
+}
   
-  header {
-    background-color: #009688;
-    color: #fff;
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+  
+.stars {
+    background: #000 url('https://i.imgur.com/YKY28eT.png') repeat top center;
+    z-index: -2;
+}
+  
+.twinkling {
+    background: transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+  
+@keyframes move-twink-back {
+    from {background-position: 0 0;}
+    to {background-position: -10000px 5000px;}
+}
+  
+header {
+    background-color: rgba(41, 98, 255, 0.8);
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
-    border-bottom: 5px solid #00796b;
-  }
+    border-bottom: 5px solid #16213e;
+}
   
-  header h1 {
+header h1 {
     margin: 0;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Bubblegum Sans', cursive;
     font-size: 3.5em;
     letter-spacing: 2px;
     color: #ffffff;
-  }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
   
-  .header-actions {
+.header-actions {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin-top: 15px;
-  }
+}
   
-  #classSelect {
-    padding: 10px;
-    border: 2px solid #00796b;
-    border-radius: 25px;
-    background-color: #ffffff;
-    color: #00796b;
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    width: 220px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  #classSelect:hover {
-    background-color: #b2dfdb;
-    transform: scale(1.05);
-  }
-  
-  #addNoticeBtn {
+#classSelect, #addNoticeBtn {
     padding: 10px 20px;
-    background-color: #ffffff;
-    color: #009688;
-    border: 2px solid #009688;
+    border: 2px solid #16213e;
     border-radius: 25px;
-    cursor: pointer;
+    background-color: #0f3460;
+    color: #ffffff;
     font-size: 1.1em;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+    transition: all 0.3s ease;
+}
   
-  #addNoticeBtn:hover {
-    background-color: #b2dfdb;
+#classSelect:hover, #addNoticeBtn:hover {
+    background-color: #16213e;
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
+}
   
-  #noticeBoard {
+#noticeBoard {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding: 30px;
-    background: url('https://www.transparenttextures.com/patterns/asfalt.png') repeat;
-    background-color: #ffffff;
     min-height: 60vh;
     position: relative;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+}
   
-  .notice-placeholder {
+.notice-placeholder {
     font-size: 1.2em;
-    color: #888;
+    color: #e94560;
     text-align: center;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: rgba(15, 52, 96, 0.7);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
@@ -96,161 +102,162 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0.8;
-    animation: fadeIn 2s ease-in;
-  }
+}
   
-  @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 0.8; }
-  }
-  
-  .notice-card {
-    background-color: #ffffff;
+.notice-card {
+    background-color: rgba(15, 52, 96, 0.7);
     border-radius: 15px;
     padding: 20px;
     margin: 10px;
     width: 250px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    animation: cardPop 0.5s forwards;
-  }
+    border: 3px solid #e94560;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
   
-  @keyframes cardPop {
-    from {
-      transform: scale(0.9);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  
-  .notice-card:hover {
+.notice-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  }
+}
   
-  .notice-card h3 {
-    color: #009688;
+.notice-card .notice-class {
+    font-size: 0.9em;
+    color: #ffa500;
+    margin-bottom: 10px;
+    text-align: center;
+}
+  
+.notice-card h3 {
+    color: #e94560;
     margin: 0;
     font-size: 1.3em;
-  }
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
   
-  .notice-card p {
-    color: #333;
+.notice-card p {
+    color: #ffffff;
     margin: 10px 0;
     font-size: 0.9em;
-  }
+}
   
-  .notice-card .edit-btn,
-  .notice-card .delete-btn {
+.notice-card .edit-btn,
+.notice-card .delete-btn {
     position: absolute;
     top: 10px;
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
+    transition: all 0.3s ease;
+}
   
-  .notice-card .edit-btn {
-    right: 50px;
-    color: #ffa500;
-  }
+.notice-card .edit-btn {
+    right: 40px;
+    color: #f1c40f;
+}
   
-  .notice-card .delete-btn {
+.notice-card .delete-btn {
     right: 10px;
-    color: #e74c3c;
-  }
+    color: #e94560;
+}
   
-  .notice-card .edit-btn:hover,
-  .notice-card .delete-btn:hover {
+.notice-card .edit-btn:hover,
+.notice-card .delete-btn:hover {
+    color: #ffffff;
     transform: scale(1.2);
-    opacity: 0.8;
-  }
+}
   
-  .modal {
+.notice-card .edit-btn:focus,
+.notice-card .delete-btn:focus {
+    outline: none;
+}
+  
+#noticeModal {
     display: none;
     position: fixed;
-    z-index: 1;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-in;
-  }
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
   
-  .modal-content {
-    background-color: #ffffff;
-    margin: 10% auto;
+.modal-content {
+    background: #fff;
+    border-radius: 10px;
     padding: 20px;
     width: 90%;
     max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    transform: translateY(-50px);
-    opacity: 0;
-  }
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
   
-  .modal-content.open {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.modal-content h2 {
+    margin: 0 0 20px 0;
+    color: #0f3460;
+}
   
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 1.5em;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close:hover {
-    color: #333;
-  }
-  
-  form {
+#noticeForm {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-  }
+}
   
-  input, textarea, select {
+#noticeTitle,
+#noticeContent,
+#noticeClass {
+    margin-bottom: 15px;
     padding: 10px;
+    border-radius: 5px;
     border: 1px solid #ddd;
-    border-radius: 25px;
-    background-color: #fff;
-    color: #333;
     font-size: 1em;
-  }
+}
   
-  textarea {
-    resize: none;
-    height: 80px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #ffcc00;
+#submitBtn {
+    padding: 15px;
+    background-color: #0f3460;
     color: #fff;
     border: none;
-    border-radius: 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
     cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+    transition: all 0.3s ease;
+}
   
-  button:hover {
-    background-color: #e6b800;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  }
+#submitBtn:hover {
+    background-color: #16213e;
+}
   
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+  
+.confetti-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0f3460;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 2em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+  
+.confetti-btn:hover {
+    background: #16213e;
+}
